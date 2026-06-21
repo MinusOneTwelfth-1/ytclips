@@ -2,7 +2,7 @@
 <html>
   <head>
     <base target="_top">
-    <title>MicTest 1.12</title>
+    <title>MicTest 1.2</title>
     <style>
       body { font-family: Arial, sans-serif; margin: 20px; text-align: center; }
       button { font-size: 16px; padding: 10px 20px; margin: 10px; cursor: pointer; }
@@ -37,7 +37,13 @@
       const saveBtn = document.getElementById('saveBtn');
       const audioPlayback = document.getElementById('audioPlayback');
       const statusDiv = document.getElementById('status');
+      
       const querys = window.location.search;
+      parms= new URLSearchParams(querys)
+      const vidid = parms.get('id');
+      const startT=parms.get('start');
+      const stopT=parms.get('stop');
+      
       
       // setup
       setupBtn.addEventListener('click', async () => {
