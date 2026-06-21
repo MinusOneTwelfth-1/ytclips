@@ -43,7 +43,7 @@
       setupBtn.addEventListener('click', async () => {
    audioChunks = [];
           console.log('getting stream..')
-         // const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
          
           console.log('making mediarecorder')
           mediaRecorder = new MediaRecorder(stream);
