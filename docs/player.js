@@ -1,4 +1,5 @@
-  var objPlayerReadyEvent
+// player.js 1.0
+var objPlayerReadyEvent
       var userClick=true;
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
@@ -55,3 +56,29 @@
         console.log('loadID'); player.loadVideoById(txtVidID.value);
         stopLoop();
       }
+
+  function startLoop(){
+    clearInterval(myTimer)
+    player.seekTo(txtStart.value)
+    
+    myTimer=setInterval(function(){console.log("seek");
+player.seekTo(txtStart.value); },1000.*lblLength.textContent);
+console.log('myTimer: '+myTimer)
+  lblLength.style.border='solid black 4px'
+       }
+
+function stopLoop(){console.log('myTimer: ' + myTimer); clearInterval(myTimer)
+lblLength.style.border='none'
+}
+
+function goPlay(vid,startT,stopT,nn){
+  if(startT){txtStart.value=startT}
+  if(stopT){txtStop.value=stopT}
+  lblLength.textContent=( 1.0*txtStop.value-1.0*txtStart.value).toFixed(2)
+  userClick=true;
+  player.loadVideoById(vid)
+
+  if(nn){currentItem=nn; spnCurrent.textContent=nn}
+  spnClip.textContent='1'
+     divLyrics.textContent = thing[currentItem][0][3]
+  }
