@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head><script type="text/javascript" id="www-widgetapi-script" src="https://www.youtube.com/s/player/ac678d18/www-widgetapi.vflset/www-widgetapi.js" async=""></script><script src="https://www.youtube.com/iframe_api"></script><script src="//www.google.com/jsapi"></script><script>window.parent.maeExportApis_();</script>
+
+
     <meta charset="UTF-8">
-    <!-- The most important tag for mobile compliance -->
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>YTClipz 2.0</title>
+    <title>YTCLip 2.0</title>
     <style>
 
 
-        /* Mobile-First Base Styles */
+         
 
               html {
         font-size: 130%; 
@@ -34,14 +34,14 @@
 
         input[type="text"] {
            flex: 1; 
-         /* */
+          
             min-width: 15%;
             flex-basis: 35%;
-        /*  */   
+            
             padding: 0.4rem;
             border: 4px solid #ccc;
             border-radius: 24px;
-            font-size: 1.0rem; /* Prevents iOS zoom on focus */
+            font-size: 1.0rem;  
             width: 8rem; height: 1.4rem;
         }
 
@@ -61,17 +61,24 @@
             background-color: #0056b3;
         }
 
-              /* Fixed width for labels so inputs stay aligned */
+               
         label {
             font-weight: bold;
             min-width: 1.5rem; 
             padding: 4px;
-          /*  font-size: 40px; */
+           
         }
 
         .playList {font-size: 1.0rem;}
 
         textarea {font-size: 0.9rem; width: 100%; height: 12rem;}
+
+    #divLyrics {
+    border: solid darkgray 4px;
+    border-radius: 12px;
+    padding: 0.5rem;
+    margin-bottom: 0.4rem;
+    }
 
         #container {margin: 0 auto;}
 
@@ -83,63 +90,52 @@
         
 
 
-        }   
-
-        #divLyrics {
-    border: solid darkgray 4px;
-    border-radius: 12px;
-    padding: 0.5rem;
-    margin-bottom: 0.4rem;
-    }
+        }        
     </style>
 </head>
-
-
 <body>
-<div id='container'>
+<div id="container">
     <div class="input-group">
         <label>IDD:&nbsp; &nbsp; </label>
 
-        <input type="text" value='fO_-esmcsv4' id='txtVidID'>
-        <button type="button" onclick='loadID()'>Load</button>
+        <input type="text" value="fO_-esmcsv4" id="txtVidID">
+        <button type="button" onclick="loadID()">Load</button>
         
     </div>
 
     <div class="input-group">
       <label>Start: </label>
-      <button type='button' onclick='incStart()' style='margin-left: 5px;'>+</button>
-       <button type='button' onclick='decStart()'>-</button>
+      <button type="button" onclick="incStart()" style="margin-left: 5px;">+</button>
+       <button type="button" onclick="decStart()">-</button>
 
-        <input type="text" value='3.67' id='txtStart'>
-        <button type="button" onclick='setStart()'>Set</button>
+        <input type="text" value="3.67" id="txtStart">
+        <button type="button" onclick="setStart()">Set</button>
     </div>
 
     <div class="input-group">
         <label>Stop: </label>
-        <button type='button' onclick='incStop()' style='margin-left: 5px;'>+</button>
-        <button type='button' onclick='decStop()'>-</button>
-        <input type="text" value='37.02' id='txtStop'>
-        <button type="button" onclick='setStop()'>Set</button>
+        <button type="button" onclick="incStop()" style="margin-left: 5px;">+</button>
+        <button type="button" onclick="decStop()">-</button>
+        <input type="text" value="37.02" id="txtStop">
+        <button type="button" onclick="setStop()">Set</button>
         
     </div>
 
     <div class="input-group">
-      <label id='lblLength'>33.85</label><button onclick='stopLoop()'>Full</button>
-      <button onclick='startLoop()'>Loop</button>
-      <button onclick='prevClip()'>&lt;&lt;</button>
-      <button onclick='nxtClip()'>&gt;&gt;</button>
-      <span id='spnCurrent'>1</span> : <span id='spnClip'>1</span>
+      <label id="lblLength" style="border: 4px solid black;">34.64</label><button onclick="stopLoop()">Full</button>
+      <button onclick="startLoop()">Loop</button>
+      <button onclick="prevClip()">&lt;&lt;</button>
+      <button onclick="nxtClip()">&gt;&gt;</button>
+      <span id="spnCurrent">1</span> : <span id="spnClip">1</span>
     </div>
-    <input type='range'><br><br>
-    <div id='divLyrics'>
+    <input type="range"><br><br>
 
-    </div>
-     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-    <div id="player"></div>
+    <div id="divLyrics"></div>
 
-  <hr>
+     
+    <iframe id="player" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Simon and Garfunkel - The Sounds of Silence [GOOD Studio Version] + Lyrics" width="350rem" height="250rem" src="https://www.youtube.com/embed/fO_-esmcsv4?playsinline=1&amp;widget_referrer=https%3A%2F%2Fn-tntnlf2u3cp2ocintuwngzatyfmekjxahv376mi-0lu-script.googleusercontent.com%2FuserCodeAppPanel%3FcreateOAuthDialog%3Dtrue&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fn-tntnlf2u3cp2ocintuwngzatyfmekjxahv376mi-0lu-script.googleusercontent.com&amp;widgetid=1&amp;forigin=https%3A%2F%2Fn-tntnlf2u3cp2ocintuwngzatyfmekjxahv376mi-0lu-script.googleusercontent.com%2FuserCodeAppPanel%3FcreateOAuthDialog%3Dtrue&amp;aoriginsup=1&amp;aorigins=https%3A%2F%2Fn-tntnlf2u3cp2ocintuwngzatyfmekjxahv376mi-0lu-script.googleusercontent.com%2Chttps%3A%2F%2Fscript.google.com&amp;gporigin=https%3A%2F%2Fn-tntnlf2u3cp2ocintuwngzatyfmekjxahv376mi-0lu-script.googleusercontent.com%2FuserCodeAppPanel%3FcreateOAuthDialog%3Dtrue&amp;vf=6"></iframe>
 
-<div id="thePlayList" class="myPlaylistClass"> --- 
+  <div id="thePlayList" class="myPlaylistClass"> --- 
     24         
       <p class="playList" onclick="goPlay('fO_-esmcsv4', '4.59', '39.23', '1')"> 1. Sound of Silence </p>
            
@@ -191,12 +187,8 @@
        
 ===
   </div>
-
-
-
-    
-  <textarea id='jsonTxt'>
-
+  <hr>
+  <textarea id="jsonTxt">
     {
   "1": [
     [
@@ -648,35 +640,35 @@
       ""
     ]
   ]
-}  
-  
-  </textarea>
+}  </textarea>
 </div>
     <script>
       var currentItem=1
       var currentClip=1
       var myTimer;
       const $ = document.querySelector.bind(document);
-      txtVidID=document.getElementById('txtVidID')
-      txtStart=document.getElementById('txtStart')
-      txtStart=$('#txtStart')
-      txtStop=$("#txtStop")
-      spnLength=$('#spnLength') 
-      lblLength=$('#lblLength')
-      spnClip=$('#spnClip')
-      spnCurrent=$('#spnCurrent')
-      
+     const  txtVidID=document.getElementById('txtVidID')
+     
+     const txtStart=$('#txtStart')
+     const txtStop=$("#txtStop")
+     const spnLength=$('#spnLength') 
+     const lblLength=$('#lblLength')
+     const spnClip=$('#spnClip')
+     const spnCurrent=$('#spnCurrent')
+     const divLyrics=$('#divLyrics') 
+
+
       var objPlayerReadyEvent
       var userClick=true;
-      // 2. This code loads the IFrame Player API code asynchronously.
+      
       var tag = document.createElement('script');
 
       tag.src = "https://www.youtube.com/iframe_api";
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      // 3. This function creates an <iframe> (and YouTube player)
-      //    after the API code downloads.
+      
+      
       var player;
       function onYouTubeIframeAPIReady() {
         console.log('onYouTubeIfrmeAPIReady')
@@ -696,28 +688,28 @@
 
       }
 
-      // 4. The API will call this function when the video player is ready.
+      
       function onPlayerReady(event) {
         console.log('playerReady: '+ event.target )
         
         event.target.playVideo();
       }
 
-      // 5. The API calls this function when the player's state changes.
-      //    The function indicates that when playing a video (state=1),
-      //    the player should play for six seconds and then stop.
+      
+      
+      
       
       function onPlayerStateChange(event) {
         console.log('stateChange: ' + event.data)
         if (event.data == YT.PlayerState.PLAYING ) {
-         // setTimeout(stopVideo, 6000);
+         
           if(userClick){startLoop(); userClick=false}
         }
       }
       function stopVideo() {
         player.stopVideo();
       }
-     // player.loadVideoById(txtVidID.value)
+     
       function loadID(){
         stopLoop()
         console.log('loadID'); player.loadVideoById(txtVidID.value);
@@ -731,7 +723,7 @@
        }
       
       function setStop(){txtStop.value=player.getCurrentTime().toFixed(2)
-      // spnLength.textContent=(1.0 * txtStop.value - 1.0 * txtStart.value ).toFixed(2)
+      
       lblLength.textContent=( 1.0*txtStop.value-1.0*txtStart.value).toFixed(2)
       startLoop()
        }
@@ -747,7 +739,7 @@
        }
 
       function incStop(){
-       // stopLoop()
+       
         txtStop.value=1.0*txtStop.value+0.25; 
         lblLength.textContent=( 1.0*txtStop.value-1.0*txtStart.value).toFixed(2)
       startLoop()
@@ -782,6 +774,7 @@ function goPlay(vid,startT,stopT,nn){
 
   if(nn){currentItem=nn; spnCurrent.textContent=nn}
   spnClip.textContent='1'
+     divLyrics.textContent = thing[currentItem][0][3]
   }
 
 function nxtClip(){
@@ -792,7 +785,10 @@ function nxtClip(){
   txtStart.value=thing[currentItem][currentClip-1][1]
    txtStop.value=thing[currentItem][currentClip-1][2]
   console.log("" + currentItem + " , " + currentClip + " , " + thing[currentItem][currentClip-1])
+  console.log("" + thing[currentItem][currentClip-1][3])
+
    lblLength.textContent=( 1.0*txtStop.value-1.0*txtStart.value).toFixed(2)
+   divLyrics.textContent = thing[currentItem][currentClip-1][3]
   startLoop()
 }
 
@@ -805,6 +801,7 @@ txtStart.value=thing[currentItem][currentClip-1][1]
 txtStop.value=thing[currentItem][currentClip-1][2]
  console.log("" + currentItem + " , " + currentClip + " , " + thing[currentItem][currentClip-1])
   lblLength.textContent=( 1.0*txtStop.value-1.0*txtStart.value).toFixed(2)
+   divLyrics.textContent = thing[currentItem][currentClip-1][3]
  startLoop()
 }
 
@@ -821,8 +818,9 @@ theList = [
 
  var thing= JSON.parse(document.querySelector('#jsonTxt').textContent)
 
-//# sourceURL=https://praveen.com/praveen.js
+
 </script>
 
-</body>
-</html>
+
+
+</body></html>
