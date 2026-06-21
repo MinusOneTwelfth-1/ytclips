@@ -1,5 +1,6 @@
-// player.js 1.0
+
 var objPlayerReadyEvent
+console.log('player.js 1.0')
       var userClick=true;
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
