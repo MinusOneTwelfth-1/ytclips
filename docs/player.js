@@ -75,7 +75,7 @@ lblLength.style.border='none'
 function goPlay(vid,startT,stopT,nn){
   if(startT){txtStart.value=startT}
   if(stopT){txtStop.value=stopT}
-  lblLength.textContent=( 1.0*txtStop.value-1.0*txtStart.value).toFixed(2)
+  spnLen.textContent=( 1.0*txtStop.value-1.0*txtStart.value).toFixed(2)
   userClick=true;
   player.loadVideoById(vid)
 
