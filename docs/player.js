@@ -80,6 +80,6 @@ function goPlay(vid,startT,stopT,nn){
   player.loadVideoById(vid)
 
   if(nn){currentItem=nn; spnCurrent.textContent=nn}
-  spnClip.textContent='1'
+  // spnClip.textContent='1'
      divLyrics.textContent = thing[currentItem][0][3]
   }
