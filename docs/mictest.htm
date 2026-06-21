@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; text-align: center; }
+      button { font-size: 16px; padding: 10px 20px; margin: 10px; cursor: pointer; }
+      #status { margin-top: 20px; font-weight: bold; color: #333; }
+      audio { display: block; margin: 20px auto; }
+    </style>
+  </head>
+  <body>
+    <h2>Microphone Recorder to Google Drive</h2>
+    <button id='setupBtn'>Setup</button>
+    <button id="recordBtn">Record</button>
+    <button id="stopBtn" disabled>Stop</button>
+    <button id="replayBtn" disabled>Replay</button>
+    <button id="saveBtn" disabled>Save to Drive</button>
+    
+    <audio id="audioPlayback" controls></audio>
+    <div id="status">Ready</div>
+
+    <script id='myScript'>
+      let mediaRecorder;
+      let audioChunks = [];
+      let audioBlob;
+      let audioUrl;
+
+      const recordBtn = document.getElementById('recordBtn');
+      const setupBtn = document.getElementById('setupBtn');
+      const stopBtn = document.getElementById('stopBtn');
+      const replayBtn = document.getElementById('replayBtn');
+      const saveBtn = document.getElementById('saveBtn');
+      const audioPlayback = document.getElementById('audioPlayback');
+      const statusDiv = document.getElementById('status');
+      // setup
+      setupBtn.addEventListener('click', async () => {
+   audioChunks = [];
+          console.log('getting stream..')
+         // const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+         
+          console.log('making mediarecorder')
+          mediaRecorder = new MediaRecorder(stream);
+          
+          mediaRecorder.ondataavailable = event => {
+            audioChunks.push(event.data);
+         };
+
+          mediaRecorder.onstop = () => {
+            audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+            audioUrl = URL.createObjectURL(audioBlob);
+            audioPlayback.src = audioUrl;
+            
+            replayBtn.disabled = false;
+            saveBtn.disabled = false;
+            statusDiv.innerText = "Recording stopped. Ready to replay or save.";
+          };
+
+
+     /* */
+
+      }
+      )
+      
+
+      // Request microphone access and start recording
+      recordBtn.addEventListener('click', async () => {
+
+        /*
+        audioChunks = [];
+       
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          mediaRecorder = new MediaRecorder(stream);
+          
+          mediaRecorder.ondataavailable = event => {
+            audioChunks.push(event.data);
+          };
+
+          mediaRecorder.onstop = () => {
+            audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+            audioUrl = URL.createObjectURL(audioBlob);
+            audioPlayback.src = audioUrl;
+            
+            replayBtn.disabled = false;
+            saveBtn.disabled = false;
+            statusDiv.innerText = "Recording stopped. Ready to replay or save.";
+          };
+          */
+      try {
+          mediaRecorder.start();
+          statusDiv.innerText = "Recording...";
+          recordBtn.disabled = true;
+          stopBtn.disabled = false;
+          replayBtn.disabled = true;
+          saveBtn.disabled = true;
+        } catch (err) {
+          statusDiv.innerText = "Error accessing microphone: " + err.message;
+        }
+      });
+
+      // Stop recording
+      stopBtn.addEventListener('click', () => {
+        mediaRecorder.stop();
+        // Stop all tracks on the stream to turn off the microphone light
+        mediaRecorder.stream.getTracks().forEach(track => track.stop());
+        recordBtn.disabled = false;
+        stopBtn.disabled = true;
+      });
+
+      // Replay audio
+      replayBtn.addEventListener('click', () => {
+        audioPlayback.play();
+        statusDiv.innerText = "Playing back audio...";
+      });
+
+      // Upload to Google Drive
+      saveBtn.addEventListener('click', () => {
+        statusDiv.innerText = "Uploading to Google Drive...";
+        saveBtn.disabled = true;
+
+        const reader = new FileReader();
+        reader.readAsDataURL(audioBlob); 
+        reader.onloadend = function() {
+          const base64Data = reader.result;
+          const fileName = "Audio_Record_" + new Date().getTime() + ".webm";
+          
+          // Call the server-side Google Apps Script function
+          google.script.run
+            .withSuccessHandler((response) => {
+              statusDiv.innerText = response;
+              saveBtn.disabled = false;
+            })
+            .withFailureHandler((err) => {
+              statusDiv.innerText = "Failed to save: " + err;
+              saveBtn.disabled = false;
+            })
+            .saveAudioFile(base64Data, fileName);
+        };
+      });
+    </script>
+  </body>
+</html>
