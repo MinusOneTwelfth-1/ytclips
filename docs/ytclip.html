@@ -137,20 +137,60 @@
      <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>
 
-  <div id="thePlayList" class="myPlaylistClass"> --- 
-  <? nn=sht.getRange('NumItems').getValue(); ?>
-  <?= nn ?>
-  <? for(i=1; i<=nn; i++){  aa=sht.getRange('TheList').offset(i-1,0,1,5).getValues();
-  
-  bb= thing[i][0]; 
-  
-   ?>
+
+<div id="thePlayList" class="myPlaylistClass"> --- 
+    24         
+      <p class="playList" onclick="goPlay('fO_-esmcsv4', '4.59', '39.23', '1')"> 1. Sound of Silence </p>
+           
+      <p class="playList" onclick="goPlay('MWjaK_nW72E', '32.91', '49.09', '2')"> 2. Chupke Chupke Raat Din </p>
+           
+      <p class="playList" onclick="goPlay('Ds8nabK0vE8', '9.33', '44.79', '3')"> 3. Gulon Mein (Mehdi H) </p>
+           
+      <p class="playList" onclick="goPlay('Xc6uwbXpmUY', '10.83', '51.98', '4')"> 4. Ranjish Hi (Mehdi H.) </p>
+           
+      <p class="playList" onclick="goPlay('LrVQSy7sYro', '24.77', '48.25', '5')"> 5. Samhalera (Meena N.) </p>
+           
+      <p class="playList" onclick="goPlay('RhfHed14cNc', '0', '25.63', '6')"> 6. Hey Jude </p>
+           
+      <p class="playList" onclick="goPlay('o_fA-Ls4RXk', '39.49', '67.45', '7')"> 7. Exsultate (Muehlemann) </p>
+           
+      <p class="playList" onclick="goPlay('jtzioa3ddKE', '35.53', '62.51', '8')"> 8. Rafta Rafta (Mehdi H.) </p>
+           
+      <p class="playList" onclick="goPlay('oW6tBV7T6Cg', '9.54', '32.97', '9')"> 9. Clementine (Frank Sunders) </p>
+           
+      <p class="playList" onclick="goPlay('h-vaqAcC5Tg', '13.39', '39.86', '10')"> 10. Clementine (Pete Seeger) </p>
+           
+      <p class="playList" onclick="goPlay('BvRUblJ_hqM', '7.44', '68.17', '11')"> 11. Delilah (Tom Jones) </p>
+           
+      <p class="playList" onclick="goPlay('OndO1zRy5pE', '5.29', '38.6', '12')"> 12. This is my Song (Humperdinck) </p>
+           
+      <p class="playList" onclick="goPlay('a5Za8pKGT2E', '7.25', '74.95', '13')"> 13. La Mer (Tatiana Eva-Marie) </p>
+           
+      <p class="playList" onclick="goPlay('o184v83-gkk', '18.18', '28.34', '14')"> 14. Dil Tadap Tadap </p>
+           
+      <p class="playList" onclick="goPlay('VBLrAfpGtxY', '7.97', '28.67', '15')"> 15. Tumi Robe (Hemanta M) </p>
+           
+      <p class="playList" onclick="goPlay('Q2aPJT1Ex0k', '5.21', '43.71', '16')"> 16. Purano Sei Diner (Hemanta M) </p>
+           
+      <p class="playList" onclick="goPlay('r8JEYU2VjZY', '0.01', '17.25', '17')"> 17. Jurm e Ulfat </p>
+           
+      <p class="playList" onclick="goPlay('7mds2iQgRz0', '25', '69.68', '18')"> 18. Samhalera Rakha (Sangita Pradhan) </p>
+           
+      <p class="playList" onclick="goPlay('y5qZrrovpuw', '11.42', '28.08', '19')"> 19. Ghost Riders (Castellucci) </p>
+           
+      <p class="playList" onclick="goPlay('QKkZCpIoC_o', '9.91', '54.54', '20')"> 20. Sound of Silence (BobbyBass) </p>
+           
+      <p class="playList" onclick="goPlay('URY_VatunQM', '12.26', '37.57', '21')"> 21. My Way (B Irani) </p>
+           
+      <p class="playList" onclick="goPlay('tufbM2TJoBs', '13.2', '40.62', '22')"> 22. Panis Angelicus (FriarAlessandro) </p>
+           
+      <p class="playList" onclick="goPlay('T5w2-5NmTds', '77.07', '100.65', '23')"> 23. Chautarima (Sujata Verma) </p>
+           
+      <p class="playList" onclick="goPlay('f6-k80XN_6c', '7.52', '26.46', '24')"> 24. Bhavani Dayani </p>
        
-      <p class='playList' onclick="goPlay('<?=aa[0][1]?>', '<?= bb[1]?>', '<?=bb[2]?>', '<?=i?>')"> <?= i ?>. <?= aa[0][2] ?> </p>
-    <?  } ?>
-   
 ===
   </div>
+    
   <hr>
   <textarea id='jsonTxt'>
 
