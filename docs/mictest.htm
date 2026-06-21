@@ -23,7 +23,9 @@
     <div id="status">Ready</div>
 
     <hr>
-    <div>Start: <input type='text' id='txtStart'>Stop: <input type='text' id='txtStop'></div><br>
+    <div>
+      ID: <input type='text' id='txtID'>
+       Start: <input type='text' id='txtStart'>Stop: <input type='text' id='txtStop'></div><br>
         <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>
     
@@ -40,6 +42,7 @@
       const saveBtn = document.getElementById('saveBtn');
       const audioPlayback = document.getElementById('audioPlayback');
       const statusDiv = document.getElementById('status');
+      const txtID=document.getElementById('txtID');
 
       const txtStart=document.getElementById('txtStart');
       const txtStop=document.getElementById('txtStop');
@@ -52,6 +55,7 @@
 
       txtStart.value=startT
       txtStop.value=stopT
+      txtID.value=vidid
       
       // setup
       setupBtn.addEventListener('click', async () => {
