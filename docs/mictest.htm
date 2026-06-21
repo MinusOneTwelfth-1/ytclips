@@ -25,7 +25,9 @@
     <hr>
     <div>
       ID: <input type='text' id='txtID'>
-       Start: <input type='text' id='txtStart'>Stop: <input type='text' id='txtStop'></div><br>
+       Start: <input type='text' id='txtStart Stop: <input type='text' id='txtStop'>
+       Len: <span id='spnLen'>1.0</span>
+    </div><br>
         <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>
     
@@ -46,6 +48,7 @@
 
       const txtStart=document.getElementById('txtStart');
       const txtStop=document.getElementById('txtStop');
+      const spnLen=document.getElementById('spnLen');
       
       const querys = window.location.search;
       parms= new URLSearchParams(querys)
@@ -56,6 +59,7 @@
       txtStart.value=startT
       txtStop.value=stopT
       txtID.value=vidid
+      spnLen.textContent=1.0*stopT - 1.0*startT
       
       // setup
       setupBtn.addEventListener('click', async () => {
