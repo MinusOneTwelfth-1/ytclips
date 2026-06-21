@@ -23,7 +23,7 @@
     <div id="status">Ready</div>
 
     <hr>
-    <div>Start: <input type='text' id='txtStart'>Stop: <input type='text' id='txtStop'></div>
+    <div>Start: <input type='text' id='txtStart'>Stop: <input type='text' id='txtStop'></div><br>
         <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>
     
@@ -40,6 +40,9 @@
       const saveBtn = document.getElementById('saveBtn');
       const audioPlayback = document.getElementById('audioPlayback');
       const statusDiv = document.getElementById('status');
+
+      const txtStart=document.getElementById('txtStart');
+      const txtStop=document.getElementById('txtStop');
       
       const querys = window.location.search;
       parms= new URLSearchParams(querys)
